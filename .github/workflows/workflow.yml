@@ -1,0 +1,42 @@
+name: SabakaLang-CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  versions-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Install sabaka-chabaka/NugetSpy
+        run: dotnet tool install --global sabaka-chabaka.NugetSpy --version 1.0.5
+      - name: Run NugetSpy and write summary
+        if: always()
+        run: |
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "### NuGet Spy Analysis Results" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          NO_COLOR=1 nuget-spy >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 4.8
+          
+      - name: Restore
+        run: dotnet restore 
+        
+      - name: Build
+        run: dotnet build --no-restore

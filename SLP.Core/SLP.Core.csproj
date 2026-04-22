@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{4A6E9C6C-4226-4B5B-B9AE-60C4841E16C2}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>SLP.Core</RootNamespace>
+        <AssemblyName>SLP.Core</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+          <HintPath>..\..\..\EXILED\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\..\..\publicizer\References\Assembly-CSharp-Publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+          <HintPath>..\..\..\publicizer\References\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="CommandSystem.Core">
+          <HintPath>..\..\..\publicizer\References\CommandSystem.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="CustomPasses">
+          <HintPath>..\..\..\publicizer\References\CustomPasses.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.API">
+          <HintPath>..\..\..\EXILED\Exiled.API.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.CreditTags">
+          <HintPath>..\..\..\EXILED\Exiled.CreditTags.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.CustomItems">
+          <HintPath>..\..\..\EXILED\Exiled.CustomItems.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.CustomRoles">
+          <HintPath>..\..\..\EXILED\Exiled.CustomRoles.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.Events">
+          <HintPath>..\..\..\EXILED\Exiled.Events.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.Loader">
+          <HintPath>..\..\..\EXILED\Exiled.Loader.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.Permissions">
+          <HintPath>..\..\..\EXILED\Exiled.Permissions.dll</HintPath>
+        </Reference>
+        <Reference Include="LabApi">
+          <HintPath>..\..\..\publicizer\References\LabApi.dll</HintPath>
+        </Reference>
+        <Reference Include="Mirror">
+          <HintPath>..\..\..\publicizer\References\Mirror.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Posix">
+          <HintPath>..\..\..\EXILED\Mono.Posix.dll</HintPath>
+        </Reference>
+        <Reference Include="NorthwoodLib">
+          <HintPath>..\..\..\publicizer\References\NorthwoodLib.dll</HintPath>
+        </Reference>
+        <Reference Include="SemanticVersioning">
+          <HintPath>..\..\..\EXILED\SemanticVersioning.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.ComponentModel.DataAnnotations">
+          <HintPath>..\..\..\EXILED\System.ComponentModel.DataAnnotations.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
+        <Reference Include="UnityEngine">
+          <HintPath>..\..\..\publicizer\References\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\..\..\publicizer\References\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>..\..\..\publicizer\References\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="YamlDotNet">
+          <HintPath>..\..\..\publicizer\References\YamlDotNet.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Config.cs" />
+        <Compile Include="Module.cs" />
+        <Compile Include="ModuleManager.cs" />
+        <Compile Include="Plugin.cs" />
+        <Compile Include="Project.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

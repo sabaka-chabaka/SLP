@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using Exiled.API.Features;
+
+namespace SLP.Core
+{
+    public class ModuleManager(List<IProject> projects)
+    {
+        private readonly List<Module> _modules = [];
+
+        public void Initialize()
+        {
+            foreach (var project in projects)
+            {
+                Log.Info($"Loading project {project.Name}");
+                foreach (var projectModule in project.Modules)
+                {
+                    Log.Info($"Loading module {projectModule.Name} {projectModule.Version} from project {project.Name}");
+                    try
+                    {
+                        AddModule(projectModule);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(e);
+                    }
+                }
+            }
+        }
+
+        public void ReInit()
+        {
+            _modules.Clear();
+            Initialize();
+        }
+        
+        private void AddModule(Module module)
+        {
+            _modules.Add(module);
+            EnableModule(module);
+        }
+        
+        private void EnableModule(Module module)
+        {
+            module.IsEnabled = true;
+
+            foreach (var action in module.OnEnable)
+                action();
+        }
+
+        private void DisableModule(Module module)
+        {
+            foreach (var action in module.OnDisable)
+                action();
+
+            module.IsEnabled = false;
+        }
+        
+        private void RestartModule(Module module) { DisableModule(module); EnableModule(module); }
+    }
+}
