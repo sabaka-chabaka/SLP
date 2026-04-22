@@ -34,7 +34,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
           
       - name: Restore
-        run: nuget restore 
+        run: nuget restore SLP.slnx
         
       - name: Build
-        run: msbuild build
+        run: msbuild build SLP.slnx
