@@ -44,14 +44,12 @@ namespace SLP.Core
         {
             module.IsEnabled = true;
 
-            foreach (var action in module.OnEnable)
-                action();
+            module.OnEnabled();
         }
 
         private void DisableModule(Module module)
         {
-            foreach (var action in module.OnDisable)
-                action();
+            module.OnDisabled();
 
             module.IsEnabled = false;
         }

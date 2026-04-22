@@ -12,6 +12,7 @@
         <AssemblyName>SLP.Features</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -105,7 +106,14 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Names\NamesModule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\SLP.Core\SLP.Core.csproj">
+        <Project>{4a6e9c6c-4226-4b5b-b9ae-60c4841e16c2}</Project>
+        <Name>SLP.Core</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
