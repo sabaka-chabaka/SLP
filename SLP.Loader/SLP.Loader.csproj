@@ -5,11 +5,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{FAC68673-DF8F-4A92-8466-CF7577D22F30}</ProjectGuid>
+        <ProjectGuid>{382CA8F1-515E-4F46-9E48-471D89AE0EFE}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>SLP.Features</RootNamespace>
-        <AssemblyName>SLP.Features</AssemblyName>
+        <RootNamespace>SLP.Loader</RootNamespace>
+        <AssemblyName>SLP.Loader</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>latest</LangVersion>
@@ -106,14 +106,18 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="FeaturesProject.cs" />
-        <Compile Include="Names\NamesModule.cs" />
+        <Compile Include="Config.cs" />
+        <Compile Include="Plugin.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SLP.Core\SLP.Core.csproj">
         <Project>{4a6e9c6c-4226-4b5b-b9ae-60c4841e16c2}</Project>
         <Name>SLP.Core</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\SLP.Features\SLP.Features.csproj">
+        <Project>{fac68673-df8f-4a92-8466-cf7577d22f30}</Project>
+        <Name>SLP.Features</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
