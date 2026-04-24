@@ -15,7 +15,7 @@ namespace SLP.Core
                 Log.Info($"Loading project {project.Name}");
                 foreach (var projectModule in project.Modules)
                 {
-                    Log.Info($"Loading module {projectModule.Name} {projectModule.Version} from project {project.Name}");
+                    Log.Info($"Loading module '{projectModule.Name}' v{projectModule.Version} from project '{project.Name}'");
                     try
                     {
                         AddModule(projectModule);
