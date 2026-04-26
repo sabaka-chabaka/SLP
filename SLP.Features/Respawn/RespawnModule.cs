@@ -44,8 +44,31 @@ public class RespawnModule : Module
 
         var toSpawn = mtf.Count() < 2 ? players.Any(x => x.Role.Team == Team.SCPs) ? WaveType.NineTailedFox : WaveType.HammerDown : WaveType.ChaosInsurgency;
 
-        _spawner.Spawn(new Wave(toSpawn, "", ""));
+        _spawner.Spawn(GenerateWave(toSpawn));
         
         yield return Timing.WaitForSeconds(300.0f);
+    }
+
+    private static Wave GenerateWave(WaveType waveType)
+    {
+        switch (waveType)
+        {
+            case WaveType.ChaosInsurgency:
+            {
+                return new Wave(waveType, "", "");
+            }
+
+            case WaveType.HammerDown:
+            {
+                return new Wave(waveType, "", "");
+            }
+
+            case WaveType.NineTailedFox:
+            {
+                return new Wave(waveType, "", "");
+            }
+            
+            default: return new Wave(WaveType.NineTailedFox, "", "");
+        }
     }
 }
