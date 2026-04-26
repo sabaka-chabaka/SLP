@@ -114,6 +114,7 @@
         <Compile Include="Hints\HintsModule.cs" />
         <Compile Include="Names\NamesModule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="Respawn\RespawnModule.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SLP.Core\SLP.Core.csproj">
