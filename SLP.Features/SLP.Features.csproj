@@ -108,6 +108,7 @@
     <ItemGroup>
         <Compile Include="Evacuation\EvacuationModule.cs" />
         <Compile Include="FeaturesProject.cs" />
+        <Compile Include="Hints\HintsModule.cs" />
         <Compile Include="Names\NamesModule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>

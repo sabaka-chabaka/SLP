@@ -10,7 +10,7 @@ public class Plugin : Plugin<Config>
     public override string Name => "SLP.Core";
     public override string Author => "sabaka-chabaka";
     public override string Prefix => "slp";
-    public override Version Version => new();
+    public override Version Version => new(1, 0, 0);
     public override PluginPriority Priority => PluginPriority.High;
 
     private ModuleManager _moduleManager;
