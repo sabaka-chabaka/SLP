@@ -35,7 +35,7 @@ public class Spawner
         player.MaxHealth = 175;
 
         foreach (var item in new[]
-                 { ItemType.ArmorHeavy, ItemType.GunLogicer, ItemType.Adrenaline, ItemType.Medkit, ItemType.KeycardMTFCaptain, ItemType.GrenadeHE, ItemType.GrenadeFlash })
+                 { ItemType.ArmorHeavy, ItemType.GunLogicer, ItemType.Adrenaline, ItemType.Medkit, wave.WaveType == WaveType.ChaosInsurgency ? ItemType.KeycardChaosInsurgency : ItemType.KeycardMTFCaptain, ItemType.GrenadeHE, ItemType.GrenadeFlash })
         {
             player.AddItem(item);
         }
@@ -49,7 +49,7 @@ public class Spawner
         player.ClearInventory();
         player.MaxHealth = 125;
 
-        foreach (var item in new[] { ItemType.ArmorCombat, ItemType.GunE11SR, ItemType.Medkit, ItemType.KeycardMTFOperative, ItemType.GrenadeHE })
+        foreach (var item in new[] { ItemType.ArmorCombat, ItemType.GunE11SR, ItemType.Medkit, wave.WaveType == WaveType.ChaosInsurgency ? ItemType.KeycardChaosInsurgency : ItemType.KeycardMTFOperative, ItemType.GrenadeHE })
         {
             player.AddItem(item);
         }
@@ -63,7 +63,7 @@ public class Spawner
         player.ClearInventory();
         player.MaxHealth = 100;
 
-        foreach (var item in new[] { ItemType.ArmorCombat, ItemType.GunE11SR, ItemType.Medkit, ItemType.KeycardMTFOperative, ItemType.GrenadeFlash })
+        foreach (var item in new[] { ItemType.ArmorCombat, ItemType.GunE11SR, ItemType.Medkit, wave.WaveType == WaveType.ChaosInsurgency ? ItemType.KeycardChaosInsurgency : ItemType.KeycardMTFOperative, ItemType.GrenadeFlash })
         {
             player.AddItem(item);
         }
