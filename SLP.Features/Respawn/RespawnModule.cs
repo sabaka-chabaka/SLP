@@ -51,24 +51,12 @@ public class RespawnModule : Module
 
     private static Wave GenerateWave(WaveType waveType)
     {
-        switch (waveType)
+        return waveType switch
         {
-            case WaveType.ChaosInsurgency:
-            {
-                return new Wave(waveType, "", "");
-            }
-
-            case WaveType.HammerDown:
-            {
-                return new Wave(waveType, "", "");
-            }
-
-            case WaveType.NineTailedFox:
-            {
-                return new Wave(waveType, "", "");
-            }
-            
-            default: return GenerateWave(WaveType.NineTailedFox);
-        }
+            WaveType.ChaosInsurgency => new Wave(waveType, "", ""),
+            WaveType.HammerDown => new Wave(waveType, "", ""),
+            WaveType.NineTailedFox => new Wave(waveType, "", ""),
+            _ => GenerateWave(WaveType.NineTailedFox)
+        };
     }
 }
