@@ -37,6 +37,9 @@
         <Reference Include="0Harmony">
             <HintPath>..\libs\0Harmony.dll</HintPath>
         </Reference>
+        <Reference Include="HintServiceMeow">
+            <HintPath>..\libs\HintServiceMeow-Exiled.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp">
             <HintPath>..\libs\Assembly-CSharp-Publicized.dll</HintPath>
         </Reference>
