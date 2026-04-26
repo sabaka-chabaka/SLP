@@ -14,6 +14,7 @@ public class Plugin : Plugin<Config>
     public override PluginPriority Priority => PluginPriority.High;
 
     private ModuleManager _moduleManager;
+    private int _counter;
 
     public static Plugin Instance { get; private set; }
     
@@ -25,6 +26,7 @@ public class Plugin : Plugin<Config>
 
     public override void OnEnabled()
     {
+        _counter = 0;
         Instance = this;
         Exiled.Events.Handlers.Server.RestartingRound += OnRestartingRound;
         base.OnEnabled();
@@ -34,12 +36,20 @@ public class Plugin : Plugin<Config>
     {
         Instance = null;
         _moduleManager = null;
+        _counter = 0;
         Exiled.Events.Handlers.Server.RestartingRound -= OnRestartingRound;
         base.OnDisabled();
     }
 
     private void OnRestartingRound()
     {
-        _moduleManager.ReInit();
+        if (_counter < 2)
+        {
+            _counter++;
+        }
+        else
+        {
+            Server.ExecuteCommand("softrestart");
+        }
     }
 }
