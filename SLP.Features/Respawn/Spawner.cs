@@ -26,6 +26,8 @@ public class Spawner
                 SpawnSpecialist(player, wave);
             }
         }
+        
+        Exiled.API.Features.Cassie.MessageTranslated(wave.Announcement, wave.Subtitles, false, true, true);
     }
     
     private void SpawnCaptain(Player player, Wave wave)
