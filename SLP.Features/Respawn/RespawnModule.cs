@@ -20,7 +20,7 @@ public class RespawnModule : Module
     public override void OnEnabled()
     {
         _spawner = new Spawner();
-        _coroutine = Timing.RunCoroutine(CheckWave(Player.List.ToList()));
+        _coroutine = Timing.RunCoroutine(CheckWave());
         Exiled.Events.Handlers.Server.RespawningTeam += OnRespawningTeam;
         base.OnEnabled();
     }
@@ -38,15 +38,20 @@ public class RespawnModule : Module
         ev.IsAllowed = false;
     }
 
-    private IEnumerator<float> CheckWave(List<Player> players)
+    private IEnumerator<float> CheckWave()
     {
-        var mtf = players.Where(x => x.Role.Team == Team.FoundationForces);
+        while (true)
+        {
+            var players = Player.List.ToList();
+            
+            var mtf = players.Where(x => x.Role.Team == Team.FoundationForces);
 
-        var toSpawn = mtf.Count() < 2 ? players.Any(x => x.Role.Team == Team.SCPs) ? WaveType.NineTailedFox : WaveType.HammerDown : WaveType.ChaosInsurgency;
+            var toSpawn = mtf.Count() < 2 ? players.Any(x => x.Role.Team == Team.SCPs) ? WaveType.NineTailedFox : WaveType.HammerDown : WaveType.ChaosInsurgency;
 
-        _spawner.Spawn(GenerateWave(toSpawn));
+            _spawner.Spawn(GenerateWave(toSpawn));
         
-        yield return Timing.WaitForSeconds(300.0f);
+            yield return Timing.WaitForSeconds(300.0f);
+        }
     }
 
     private static Wave GenerateWave(WaveType waveType)
