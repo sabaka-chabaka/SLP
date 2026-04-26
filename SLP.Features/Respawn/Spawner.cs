@@ -13,9 +13,14 @@ public class Spawner
     public void Spawn(Wave wave)
     {
         var players = Player.List;
+
+        var deadPlayers = players.Where(x => !x.IsAlive).ToList();
+
+        if (deadPlayers.Count == 0)
+            return;
         
-        SpawnCaptain(players.First(x => !x.IsAlive), wave);
-        foreach (var player in players.Where(x => !x.IsAlive))
+        SpawnJust(deadPlayers.First(), wave);
+        foreach (var player in deadPlayers.Skip(1))
         {
             if (_random.Next(0, 2) == 0)
             {
