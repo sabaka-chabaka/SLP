@@ -68,7 +68,7 @@ public class RespawnModule : Module
                 return new Wave(waveType, "", "");
             }
             
-            default: return new Wave(WaveType.NineTailedFox, "", "");
+            default: return GenerateWave(WaveType.NineTailedFox);
         }
     }
 }
