@@ -17,7 +17,7 @@ public class Spawner
         SpawnCaptain(players.First(x => !x.IsAlive), wave);
         foreach (var player in players.Where(x => !x.IsAlive))
         {
-            if (_random.Next(1, 2) == 1)
+            if (_random.Next(0, 2) == 0)
             {
                 SpawnJust(player, wave);
             }
