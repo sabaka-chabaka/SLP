@@ -1,10 +1,10 @@
 namespace SLP.Features.Respawn;
 
-enum WaveType
+public enum WaveType
 {
     NineTailedFox,
     HammerDown,
     ChaosInsurgency
 }
 
-record struct Wave(WaveType WaveType, string Announcement, string Subtitles);
+public record struct Wave(WaveType WaveType, string Announcement, string Subtitles);
