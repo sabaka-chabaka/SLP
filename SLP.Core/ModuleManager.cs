@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Exiled.API.Features;
+using MEC;
 
 namespace SLP.Core
 {
@@ -23,15 +24,10 @@ namespace SLP.Core
                     catch (Exception e)
                     {
                         Log.Error(e);
+                        Timing.CallDelayed(15.0f, () => RestartModule(projectModule));
                     }
                 }
             }
-        }
-
-        public void ReInit()
-        {
-            _modules.Clear();
-            Initialize();
         }
         
         private void AddModule(Module module)
