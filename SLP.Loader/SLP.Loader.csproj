@@ -119,6 +119,10 @@
         <Project>{fac68673-df8f-4a92-8466-cf7577d22f30}</Project>
         <Name>SLP.Features</Name>
       </ProjectReference>
+      <ProjectReference Include="..\SLP.Items\SLP.Items.csproj">
+        <Project>{05c2d227-be36-41bf-ac85-98164846b493}</Project>
+        <Name>SLP.Items</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,6 +4,7 @@ using Exiled.API.Enums;
 using Exiled.API.Features;
 using SLP.Core;
 using SLP.Features;
+using SLP.Items;
 
 namespace SLP.Loader
 {
@@ -15,7 +16,7 @@ namespace SLP.Loader
         public override Version Version => new();
         public override PluginPriority Priority => PluginPriority.Default;
 
-        private readonly List<IProject> _projects = [new FeaturesProject()];
+        private readonly List<IProject> _projects = [new FeaturesProject(), new ItemsProject()];
 
         public override void OnEnabled()
         {
