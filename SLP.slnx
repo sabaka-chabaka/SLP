@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="SLP.Core/SLP.Core.csproj" />
   <Project Path="SLP.Features/SLP.Features.csproj" />
+  <Project Path="SLP.Items/SLP.Items.csproj" />
   <Project Path="SLP.Loader/SLP.Loader.csproj" />
 </Solution>
