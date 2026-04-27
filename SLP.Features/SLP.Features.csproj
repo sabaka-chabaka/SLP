@@ -117,6 +117,7 @@
         <Compile Include="Respawn\RespawnModule.cs" />
         <Compile Include="Respawn\RespawnTypes.cs" />
         <Compile Include="Respawn\Spawner.cs" />
+        <Compile Include="Scp106Cont\Scp106ContModule.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SLP.Core\SLP.Core.csproj">
