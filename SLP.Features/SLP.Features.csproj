@@ -40,6 +40,9 @@
         <Reference Include="HintServiceMeow">
             <HintPath>..\libs\HintServiceMeow-Exiled.dll</HintPath>
         </Reference>
+        <Reference Include="ProjectMER">
+            <HintPath>..\libs\ProjectMER.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp">
             <HintPath>..\libs\Assembly-CSharp-Publicized.dll</HintPath>
         </Reference>
