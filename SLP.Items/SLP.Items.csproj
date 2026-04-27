@@ -12,6 +12,7 @@
         <AssemblyName>SLP.Items</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -107,6 +108,7 @@
     <ItemGroup>
         <Compile Include="ItemsProject.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="Sniper\SniperModule.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SLP.Core\SLP.Core.csproj">
