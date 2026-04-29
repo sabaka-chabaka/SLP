@@ -11,12 +11,12 @@ namespace SLP.Core
 
         public virtual void OnEnabled()
         {
-            Log.Info($"Module {Name} v{Version} is enabled");
+            Log.Info($"Module '{Name}' v{Version} is enabled");
         }
 
         public virtual void OnDisabled()
         {
-            Log.Info($"Module {Name} v{Version} is disabled");
+            Log.Info($"Module '{Name}' v{Version} is disabled");
         }
     }
 }
