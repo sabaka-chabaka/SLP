@@ -1,10 +1,10 @@
-name: SabakaLang-CI
+name: SLP-CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, classic ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, classic ]
 
 jobs:
   versions-check:
