@@ -120,7 +120,7 @@ public class HintsModule : Module
             var hintDesc = new HSMHint
             {
                 Text =
-                    "<size=25><b>[<color=white>R</color><color=blue>U</color><color=red>S</color>] <color=#45FE07>С</color><color=#50EE07>а</color><color=#5BDE07>б</color><color=#66CE07>а</color><color=#71BE07>к</color><color=#7CAE07>а</color><color=#879E07>Р</color><color=#928E07>П</color> <color=#A86E07>|</color> <color=#BE4E07>M</color><color=#C93E07>e</color><color=#D42E07>d</color><color=#DF1E07>i</color><color=#EA0E07>u</color><color=#F50007>m</color></b></size>",
+                    "<size=25><b>[<color=white>R</color><color=blue>U</color><color=red>S</color>] <color=#45FE07>С</color><color=#50EE07>а</color><color=#5BDE07>б</color><color=#66CE07>а</color><color=#71BE07>к</color><color=#7CAE07>а</color><color=#879E07>Р</color><color=#928E07>П</color> <color=#A86E07>|</color> <color=#BE4E07>C</color><color=#C93E07>l</color><color=#D42E07>а</color><color=#DF1E07>s</color><color=#EA0E07>s</color><color=#F50007>ic</color></b></size>",
                 FontSize = 23,
                 YCoordinate = 1060,
                 YCoordinateAlign = HintVerticalAlign.Bottom,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Exiled.API.Enums;
 using Exiled.API.Features;
+using Exiled.API.Features.Doors;
 using Exiled.Events.EventArgs.Player;
 using MEC;
 using PlayerRoles;
@@ -33,6 +34,7 @@ public class PigModule : Module
 
         Exiled.Events.Handlers.Server.RoundStarted += _handlers.OnRoundStarted;
         Exiled.Events.Handlers.Player.Dying += _handlers.OnDying;
+        Exiled.Events.Handlers.Player.ChangingRole += _handlers.OnChangingRole;
 
         base.OnEnabled();
     }
@@ -41,6 +43,7 @@ public class PigModule : Module
     {
         Exiled.Events.Handlers.Server.RoundStarted -= _handlers.OnRoundStarted;
         Exiled.Events.Handlers.Player.Dying -= _handlers.OnDying;
+        Exiled.Events.Handlers.Player.ChangingRole -= _handlers.OnChangingRole;
 
         _handlers = null;
         Instance = null;
@@ -61,7 +64,7 @@ public class EventHandlers
     private void SpawnSwinopas()
     {
         var players = Player.List
-            .Where(p => p.IsAlive && p != Server.Host)
+            .Where(p => p.IsAlive && p != Server.Host && p.Role.Type != RoleTypeId.Tutorial && p.Role.Team != Team.SCPs)
             .ToList();
 
         if (players.Count == 0)
@@ -105,6 +108,8 @@ public class EventHandlers
                 Timing.KillCoroutines(_healCoroutine);
 
             _healCoroutine = Timing.RunCoroutine(HealCoroutine(player));
+            
+            player.Teleport(Door.Random(ZoneType.LightContainment));
         });
     }
 
@@ -126,6 +131,21 @@ public class EventHandlers
     }
 
     public void OnDying(DyingEventArgs ev)
+    {
+        if (ev.Player == PigModule.Instance.CurrentSwinopas)
+        {
+            Log.Info($"[Swinopas] Свинопас {ev.Player.Nickname} умер.");
+            PigModule.Instance.CurrentSwinopas = null;
+            ev.Player.CustomInfo = null;
+
+            if (_healCoroutine.IsRunning)
+                Timing.KillCoroutines(_healCoroutine);
+
+            Map.Broadcast(5, "<b><color=#e06c00>🐷 СВИНОПАС</color></b> был убит!");
+        }
+    }
+
+    public void OnChangingRole(ChangingRoleEventArgs ev)
     {
         if (ev.Player == PigModule.Instance.CurrentSwinopas)
         {
