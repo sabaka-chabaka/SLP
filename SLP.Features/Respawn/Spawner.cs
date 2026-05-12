@@ -14,7 +14,7 @@ public class Spawner
     {
         var players = Player.List;
 
-        var deadPlayers = players.Where(x => !x.IsAlive).ToList();
+        var deadPlayers = players.Where(x => !x.IsAlive).Where(x => x.Role.Type != RoleTypeId.Overwatch).ToList();
 
         if (deadPlayers.Count == 0)
             return;

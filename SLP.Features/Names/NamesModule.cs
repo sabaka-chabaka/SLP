@@ -267,13 +267,17 @@ namespace SLP.Features.Names
         {
             int age = _random.Next(25, 50);
             int dNumber = _random.Next(1, 999999999);
+            string militaryRandomName = null;
 
             string randomName =
                 $"{HumanLastNames[_random.Next(HumanLastNames.Count)]} {HumanNames[_random.Next(HumanNames.Count)]}";
             string playerDisplayNickname = $"[{ev.Player.Id}] {randomName}";
-
-            string militaryRandomName =
-                $"{ClassTitles[ev.NewRole]} {MilitaryNames[_random.Next(MilitaryNames.Count)]}";
+            
+            if (ev.NewRole != RoleTypeId.Spectator || ev.NewRole != RoleTypeId.Overwatch || ev.NewRole != RoleTypeId.Tutorial)
+            {
+                militaryRandomName =
+                    $"{ClassTitles[ev.NewRole]} {MilitaryNames[_random.Next(MilitaryNames.Count)]}";
+            }
 
             if (ev.NewRole == RoleTypeId.Scp079)
             {
